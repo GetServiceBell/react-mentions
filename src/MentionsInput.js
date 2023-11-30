@@ -206,8 +206,11 @@ class MentionsInput extends React.Component {
 
       ...(!readOnly &&
         !disabled && {
-          onChange: this.handleChange,
-          onSelect: this.handleSelect,
+          onChange: (e) => {
+            this.handleChange(e)
+            this.handleSelect(e)
+          },
+          onFocus: this.handleSelect,
           onKeyDown: this.handleKeyDown,
           onBlur: this.handleBlur,
           onCompositionStart: this.handleCompositionStart,
